@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {FirebaseProvider } from './../../providers/firebase/firebase';
+import { AngularFireList } from 'angularfire2/database';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +9,19 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  testItems: AngularFireList<any>;
+  newItem = '';
 
+  constructor(public navCtrl: NavController, public firebaseProvider: FirebaseProvider) {
+    this.testItems = this.firebaseProvider.getList();
+  }
+
+  addItem(){
+    this.firebaseProvider.addInfo(this.newItem);
+  }
+
+  deleteItem(id){
+    this.firebaseProvider.deleteInfo(id);
   }
 
 }

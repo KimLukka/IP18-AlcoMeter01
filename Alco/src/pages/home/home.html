@@ -17,51 +17,12 @@
   <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
 
-XHTML
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-<ion-header>
-  <ion-navbar color="primary">
-    <ion-title>
-      Shopping List
-    </ion-title>
-  </ion-navbar>
-</ion-header>
  
 <ion-content>
   <ion-row>
     <ion-col col-9>
       <ion-item>
-        <ion-input type="text" [(ngModel)]="newItem" placeholder="New Shopping item"></ion-input>
+        <ion-input type="text" [(ngModel)]="newItem" placeholder="New test item"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col>
@@ -69,13 +30,13 @@ XHTML
     </ion-col>
   </ion-row>
  
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of shoppingItems | async">
+  <ion-list >
+    <ion-item-sliding *ngFor="let item of testItems | async">
       <ion-item>
-        {{ item.$value }}
+        {{ item }}
       </ion-item>
       <ion-item-options side="right">
-        <button ion-button color="danger" icon-only (click)="removeItem(item.$key)"><ion-icon name="trash"></ion-icon></button>
+        <button ion-button color="danger" icon-only (click)="deleteItem(item.$key)"><ion-icon name="trash"></ion-icon></button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>

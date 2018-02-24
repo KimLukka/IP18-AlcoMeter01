@@ -22,6 +22,7 @@ export class HomePage {
   }
 
   deleteItem(id){
+    console.log(id);
     this.firebaseProvider.deleteInfo(id);
   }
 

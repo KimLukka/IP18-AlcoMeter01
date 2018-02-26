@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { DatabaseTestingPage } from '../pages/database-testing/database-testing';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -13,6 +14,7 @@ import {HttpModule} from '@angular/http';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireModule} from 'angularfire2';
 import {FirebaseProvider} from './../providers/firebase/firebase';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGbCzagTiX3RZmGXYct2YaJSZQPMcziac",
@@ -29,7 +31,9 @@ const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    DatabaseTestingPage
+
   ],
   imports: [
     BrowserModule,
@@ -42,13 +46,15 @@ const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    DatabaseTestingPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     FirebaseProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthenticationProvider
   ]
 })
 export class AppModule {}

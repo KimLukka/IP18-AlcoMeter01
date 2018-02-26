@@ -2,9 +2,19 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import firebase from 'firebase';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { DatabaseTestingPage } from '../pages/database-testing/database-testing';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCGbCzagTiX3RZmGXYct2YaJSZQPMcziac",
+  authDomain: "alcometer-720c2.firebaseapp.com",
+  databaseURL: "https://alcometer-720c2.firebaseio.com",
+  projectId: "alcometer-720c2",
+  storageBucket: "alcometer-720c2.appspot.com",
+  messagingSenderId: "211742343446"
+};
 
 @Component({
   templateUrl: 'app.html'
@@ -12,18 +22,29 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+    firebase.initializeApp(firebaseConfig);
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'List', component: ListPage },
+      { title: 'Login', component: DatabaseTestingPage}
     ];
+
+    const unsubscribe = firebase.auth().onAuthStateChanged( user => {
+      if (!user) {
+        this.rootPage = DatabaseTestingPage;
+        unsubscribe();
+      } else { 
+        this.rootPage = HomePage;
+        unsubscribe();
+      }
+    });
 
   }
 

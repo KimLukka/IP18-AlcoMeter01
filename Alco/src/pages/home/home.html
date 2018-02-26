@@ -16,28 +16,3 @@
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
-
- 
-<ion-content>
-  <ion-row>
-    <ion-col col-9>
-      <ion-item>
-        <ion-input type="text" [(ngModel)]="newItem" placeholder="New test item"></ion-input>
-      </ion-item>
-    </ion-col>
-    <ion-col>
-      <button ion-button (click)="addItem()">Add!</button>
-    </ion-col>
-  </ion-row>
- 
-  <ion-list >
-    <ion-item-sliding *ngFor="let item of testItems | async">
-      <ion-item>
-        {{ item }}
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="danger" icon-only (click)="deleteItem(item.$key)"><ion-icon name="trash"></ion-icon></button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-</ion-content>

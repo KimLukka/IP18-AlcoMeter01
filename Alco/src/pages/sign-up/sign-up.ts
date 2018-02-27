@@ -12,6 +12,7 @@ import { HomePage } from '../home/home';
 export class SignUpPage {
 
   public signUpForm: FormGroup;
+  public resetPasswordForm: FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public authProvider: AuthenticationProvider) {
     this.signUpForm = formBuilder.group({
@@ -20,6 +21,10 @@ export class SignUpPage {
       country:[''],
       age:['']
     });
+
+    this.resetPasswordForm = formBuilder.group({
+      email:['']
+    });
   }
 
 signUpUser(){
@@ -27,6 +32,11 @@ signUpUser(){
   .then(()=>{
     this.navCtrl.setRoot(HomePage);
   });
+}
+
+resetPassword(){
+  this.authProvider.resetPassword(this.resetPasswordForm.value.email);
+
 }
 
 }

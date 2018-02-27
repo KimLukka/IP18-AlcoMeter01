@@ -25,4 +25,8 @@ export class AuthenticationProvider {
     return firebase.auth().signOut();
   }
 
+  resetPassword(email: string): Promise<any>{
+    return firebase.auth().sendPasswordResetEmail(email);
+  }
+
 }

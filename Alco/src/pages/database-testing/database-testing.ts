@@ -7,6 +7,7 @@ import { AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { auth } from 'firebase';
 import { HomePage } from '../home/home';
+import { SignUpPage } from '../sign-up/sign-up';
 
 
 @IonicPage()
@@ -46,7 +47,11 @@ loginUser(): void{
 }
 
 goToSignup(): void { 
-  this.navCtrl.push('SignupPage'); 
+  this.navCtrl.push(SignUpPage); 
+}
+
+forgotPassword(): void {
+  this.navCtrl.push(SignUpPage);
 }
 
 }

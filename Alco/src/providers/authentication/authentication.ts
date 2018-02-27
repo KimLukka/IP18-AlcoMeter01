@@ -21,4 +21,8 @@ export class AuthenticationProvider {
     });
   }
 
+  logOut(): Promise<any>{
+    return firebase.auth().signOut();
+  }
+
 }

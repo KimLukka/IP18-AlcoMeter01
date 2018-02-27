@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { DatabaseTestingPage } from '../pages/database-testing/database-testing';
+import { SignUpPage } from '../pages/sign-up/sign-up';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGbCzagTiX3RZmGXYct2YaJSZQPMcziac",
@@ -33,7 +34,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Login', component: DatabaseTestingPage}
+      { title: 'Login', component: DatabaseTestingPage},
+      { title: 'Signup', component: SignUpPage }
     ];
 
     const unsubscribe = firebase.auth().onAuthStateChanged( user => {

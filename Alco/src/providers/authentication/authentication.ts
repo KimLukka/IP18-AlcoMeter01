@@ -13,4 +13,12 @@ export class AuthenticationProvider {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
+  createNewUser(email: string, password: string): Promise<any>{
+    return firebase
+    .auth().createUserWithEmailAndPassword(email, password)
+    .then(newUser => {
+      firebase.database().ref('/userProfile').child(newUser.uid).set({email: email});
+    });
+  }
+
 }

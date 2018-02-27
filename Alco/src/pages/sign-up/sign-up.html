@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Signup</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="auth-page">
+ 
+  <form [formGroup]="signUpForm" (submit)="signUpUser()" novalidate>
+    
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Your email address">
+      </ion-input>
+    
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="Your password">
+      </ion-input>
+
+    <button ion-button block type="submit" [disabled]="!signUpForm.valid">
+      Create a new Account
+    </button>
+  </form>
+</ion-content>

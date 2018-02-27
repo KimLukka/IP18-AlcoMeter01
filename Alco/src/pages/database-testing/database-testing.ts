@@ -45,4 +45,8 @@ loginUser(): void{
   )
 }
 
+goToSignup(): void { 
+  this.navCtrl.push('SignupPage'); 
+}
+
 }

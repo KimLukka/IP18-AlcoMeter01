@@ -16,6 +16,14 @@
       <ion-input formControlName="password" type="password" placeholder="Your password">
       </ion-input>
 
+      <ion-label stacked>Country</ion-label>
+      <ion-input formControlName="country" type="text" placeholder="Your country">
+      </ion-input>
+
+      <ion-label stacked>Age</ion-label>
+      <ion-input formControlName="age" type="number" placeholder="Your age">
+      </ion-input>
+
     <button ion-button block type="submit" [disabled]="!signUpForm.valid">
       Create a new Account
     </button>

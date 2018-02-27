@@ -13,11 +13,11 @@ export class AuthenticationProvider {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
-  createNewUser(email: string, password: string): Promise<any>{
+  createNewUser(email: string, password: string, country: string, age: number): Promise<any>{
     return firebase
     .auth().createUserWithEmailAndPassword(email, password)
     .then(newUser => {
-      firebase.database().ref('/userProfile').child(newUser.uid).set({email: email});
+      firebase.database().ref('/userProfile').child(newUser.uid).set({email: email, country: country, age:age});
     });
   }
 

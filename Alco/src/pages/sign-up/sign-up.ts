@@ -16,12 +16,14 @@ export class SignUpPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public authProvider: AuthenticationProvider) {
     this.signUpForm = formBuilder.group({
       email:[''],
-      password:['']
+      password:[''],
+      country:[''],
+      age:['']
     });
   }
 
 signUpUser(){
-  this.authProvider.createNewUser(this.signUpForm.value.email, this.signUpForm.value.password)
+  this.authProvider.createNewUser(this.signUpForm.value.email, this.signUpForm.value.password, this.signUpForm.value.country, this.signUpForm.value.age)
   .then(()=>{
     this.navCtrl.setRoot(HomePage);
   });

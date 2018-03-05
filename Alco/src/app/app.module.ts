@@ -18,8 +18,8 @@ import { LoginPageModule } from '../pages/login/login.module';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-  ],
+    ListPage
+    ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),

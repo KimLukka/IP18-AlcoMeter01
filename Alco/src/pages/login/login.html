@@ -6,7 +6,7 @@
 
 <ion-list style="position:absolute; top:45%; left:20%;">
   <ion-item>
-    <ion-label floating>Username</ion-label>
+    <ion-label floating>Email</ion-label>
     <ion-input type="text" [(ngModel)]="user.email"></ion-input>
   </ion-item>
   
@@ -19,5 +19,5 @@
 </ion-list>
 
   <img src="assets/imgs/google.png" style="margin-top:145%;margin-left:20%; width:220px;height:50px;">
-  <button style="background-color:lightblue; margin-left:20.5%; width:216px;" ion-button>Create account</button>
+  <button style="background-color:lightblue; margin-left:20.5%; width:216px;" (click)="createAccount()" ion-button>Create account</button>
 

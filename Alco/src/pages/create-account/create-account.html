@@ -1,0 +1,48 @@
+
+<ion-header style="background-color:lightblue;">
+  <img src="assets/imgs/alcometer.png">
+</ion-header>
+<h1 style="position:absolute; left:25%; top:22%">Create Account</h1>
+
+<ion-list style="position:absolute; top:32%; left:20%;">
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating> Confirm password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Country</ion-label>
+    <ion-select [(ngModel)]="gaming">
+      <ion-option value="nes">België</ion-option>
+      <ion-option value="n64">Suomi</ion-option>
+      <ion-option value="ps">Deutschland</ion-option>
+      <ion-option value="genesis">Nederland</ion-option>
+      <ion-option value="saturn">France</ion-option>
+      <ion-option value="snes">Lëtzebuerg</ion-option>
+      <ion-option value="snes">Portugal</ion-option>
+      <ion-option value="snes">Sverige</ion-option>
+      <ion-option value="snes">Great Britian</ion-option>
+      <ion-option value="snes">România</ion-option>
+      <ion-option value="snes">Italia</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Date of birth</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label style="font-size:0.7em;">I agree to share my information.</ion-label>
+    <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+  </ion-item>
+
+
+  <button style="position:absolute; top:105%; background-color:lightblue; width:100%" (click)="login(user)" ion-button>Create Account</button>

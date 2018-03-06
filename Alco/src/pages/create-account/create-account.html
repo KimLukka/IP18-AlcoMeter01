@@ -7,17 +7,17 @@
 <ion-list style="position:absolute; top:32%; left:20%;">
   <ion-item>
     <ion-label floating>Email</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
   </ion-item>
   
   <ion-item>
     <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating> Confirm password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" ></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Country</ion-label>
@@ -45,4 +45,4 @@
   </ion-item>
 
 
-  <button style="position:absolute; top:105%; background-color:lightblue; width:100%" (click)="login(user)" ion-button>Create Account</button>
+  <button style="position:absolute; top:105%; background-color:lightblue; width:100%" (click)="createAccount(user)" ion-button>Create Account</button>

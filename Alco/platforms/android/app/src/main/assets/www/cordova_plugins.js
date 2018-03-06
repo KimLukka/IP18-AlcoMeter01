@@ -23,6 +23,14 @@ module.exports = [
     "clobbers": [
       "navigator.splashscreen"
     ]
+  },
+  {
+    "id": "cordova-plugin-bluetooth-serial.bluetoothSerial",
+    "file": "plugins/cordova-plugin-bluetooth-serial/www/bluetoothSerial.js",
+    "pluginId": "cordova-plugin-bluetooth-serial",
+    "clobbers": [
+      "window.bluetoothSerial"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -32,7 +40,8 @@ module.exports.metadata =
   "cordova-plugin-ionic-keyboard": "2.0.5",
   "cordova-plugin-ionic-webview": "1.1.16",
   "cordova-plugin-splashscreen": "5.0.2",
-  "cordova-plugin-whitelist": "1.3.3"
+  "cordova-plugin-whitelist": "1.3.3",
+  "cordova-plugin-bluetooth-serial": "0.4.7"
 };
 // BOTTOM OF METADATA
 });

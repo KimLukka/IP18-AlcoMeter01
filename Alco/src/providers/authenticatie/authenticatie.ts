@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
-import firebase from 'firebase';
-
+import  firebase  from 'firebase';
 
 @Injectable()
-export class AuthenticationProvider {
+export class AuthenticatieProvider {
 
   constructor() {
-    console.log('Hello AuthenticationProvider Provider');
+
   }
 
-  loginUser(email: string, password: string): Promise<any>{
+  LoginUser(email: string, password: string): Promise<any>{
     return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
-  createNewUser(email: string, password: string, country: string, age: number): Promise<any>{
+  CreateNewUser(email: string, password: string, country:String, dateOfBirth:Date): Promise<any> {
     return firebase
     .auth().createUserWithEmailAndPassword(email, password)
-    .then(newUser => {
-      firebase.database().ref('/userProfile').child(newUser.uid).set({email: email, country: country, age:age});
+    .then( newUser => {
+      firebase.database().ref('/userProfile').child(newUser.uid).set({ email: email, country:country, dateOfBirth:dateOfBirth});
     });
   }
 
@@ -28,5 +27,4 @@ export class AuthenticationProvider {
   resetPassword(email: string): Promise<any>{
     return firebase.auth().sendPasswordResetEmail(email);
   }
-
 }

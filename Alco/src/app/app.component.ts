@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from 'firebase';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
-import { CreateAccountPageModule } from '../pages/create-account/create-account.module';
+import { CreateAccountPage } from '../pages/create-account/create-account';
 import { TestHomePage } from '../pages/test-home/test-home';
 
 
@@ -26,7 +26,7 @@ export class MyApp {
     this.pages = [
       { title: 'Login', component: LoginPage },
       { title: 'List', component: ListPage },
-      { title: 'Create Account', component: CreateAccountPageModule }
+      { title: 'Create Account', component: CreateAccountPage }
 
     ];
     const unsubscribe = firebase.auth().onAuthStateChanged( user => {

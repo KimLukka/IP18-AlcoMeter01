@@ -16,7 +16,6 @@ import {AngularFireAuthModule} from "angularfire2/auth";
 import { LoginPage } from '../pages/login/login';
 import { LoginPageModule } from '../pages/login/login.module';
 import { CreateAccountPage } from '../pages/create-account/create-account';
-import { CreateAccountPageModule } from '../pages/create-account/create-account.module';
 import { AuthenticatieProvider } from '../providers/authenticatie/authenticatie';
 import { TestHomePage } from '../pages/test-home/test-home';
 import { TestHomePageModule } from '../pages/test-home/test-home.module';
@@ -37,7 +36,8 @@ firebase.initializeApp(firebaseConfig);
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    CreateAccountPage
       ],
   imports: [
     BrowserModule,
@@ -45,7 +45,6 @@ firebase.initializeApp(firebaseConfig);
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     LoginPageModule,
-    CreateAccountPageModule,
     HttpModule,
     AngularFireDatabaseModule,
     TestHomePageModule
@@ -57,7 +56,8 @@ firebase.initializeApp(firebaseConfig);
     HomePage,
     ListPage,
     LoginPage,
-    TestHomePage
+    TestHomePage,
+    CreateAccountPage
   ],
   providers: [
     StatusBar,

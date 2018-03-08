@@ -14,7 +14,7 @@
     <ion-label floating>Password</ion-label>
     <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
-  <ion-label><a href="#" style="font-size:10px;margin-left:7%">Forgot password?</a></ion-label>
+  <ion-label><a (click)="resetPassword()" style="font-size:10px;margin-left:7%">Forgot password?</a></ion-label>
   <button style="position:absolute; top:100%; background-color:lightblue; width:100%" (click)="login(user)" ion-button>Sign in</button>
 </ion-list>
 

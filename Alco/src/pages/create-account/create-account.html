@@ -2,47 +2,58 @@
 <ion-header style="background-color:lightblue;">
   <img src="assets/imgs/alcometer.png">
 </ion-header>
-<h1 style="position:absolute; left:25%; top:22%">Create Account</h1>
 
-<ion-list style="position:absolute; top:32%; left:20%;">
+<ion-content padding class="auth-page">
+    <h1 style="position:absolute; left:25%; top:5%">Create Account</h1>
+<form [formGroup]="createAccountForm" (submit)="signUpUser()">
+<ion-list style="position:absolute; top:10%; left:20%;">
   <ion-item>
     <ion-label floating>Email</ion-label>
-    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    <ion-input  type="text" formControlName="email"></ion-input>
   </ion-item>
   
   <ion-item>
     <ion-label floating>Password</ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    <ion-input type="password" formControlName="password"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating> Confirm password</ion-label>
     <ion-input type="password" ></ion-input>
   </ion-item>
+
+
   <ion-item>
     <ion-label>Country</ion-label>
-    <ion-select [(ngModel)]="gaming">
-      <ion-option value="nes">België</ion-option>
-      <ion-option value="n64">Suomi</ion-option>
-      <ion-option value="ps">Deutschland</ion-option>
-      <ion-option value="genesis">Nederland</ion-option>
-      <ion-option value="saturn">France</ion-option>
-      <ion-option value="snes">Lëtzebuerg</ion-option>
-      <ion-option value="snes">Portugal</ion-option>
-      <ion-option value="snes">Sverige</ion-option>
-      <ion-option value="snes">Great Britian</ion-option>
-      <ion-option value="snes">România</ion-option>
-      <ion-option value="snes">Italia</ion-option>
+    <ion-select formControlName="country">
+      <ion-option value="België">België</ion-option>
+      <ion-option value="Suomo">Suomi</ion-option>
+      <ion-option value="Deutschland">Deutschland</ion-option>
+      <ion-option value="Nederland">Nederland</ion-option>
+      <ion-option value="France">France</ion-option>
+      <ion-option value="Lëtzebuerg">Lëtzebuerg</ion-option>
+      <ion-option value="Portugal">Portugal</ion-option>
+      <ion-option value="Sverige">Sverige</ion-option>
+      <ion-option value="Great Britian">Great Britian</ion-option>
+      <ion-option value="România">România</ion-option>
+      <ion-option value="Italia">Italia</ion-option>
     </ion-select>
   </ion-item>
+
+
   <ion-item>
     <ion-label>Date of birth</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+    <ion-datetime formControlName="dateOfBirth" displayFormat="DD/MM/YYYY"></ion-datetime>
   </ion-item>
+
+
   <ion-item>
     <ion-label style="font-size:0.7em;">I agree to share my information.</ion-label>
-    <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+    <ion-checkbox ></ion-checkbox>
   </ion-item>
 
 
-  <button style="position:absolute; top:105%; background-color:lightblue; width:100%" (click)="createAccount(user)" ion-button>Create Account</button>
+  <button type="submit"  style="position:absolute; top:105%; background-color:lightblue; width:100%" ion-button>Create Account</button>
+  </ion-list>
+</form>
+</ion-content>

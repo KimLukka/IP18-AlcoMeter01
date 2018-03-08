@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { User } from '../../models/user';
+import { IonicPage, NavController, NavParams, Loading, LoadingController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthenticatieProvider } from '../../providers/authenticatie/authenticatie';
+import { TestHomePage } from '../test-home/test-home';
 
 /**
  * Generated class for the CreateAccountPage page.
@@ -10,28 +12,39 @@ import { AngularFireAuth } from 'angularfire2/auth';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({name: 'page-create-account'})
 @Component({
   selector: 'page-create-account',
   templateUrl: 'create-account.html',
 })
 export class CreateAccountPage {
-  user = {} as User;
-
-  constructor(private afAuth:AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  public createAccountForm: FormGroup;
+  public loading: Loading;
+  constructor(private afAuth:AngularFireAuth,
+            public navCtrl: NavController, 
+            public navParams: NavParams, 
+            public authProvider: AuthenticatieProvider, 
+            public formBuilder: FormBuilder,
+            public loadingCtrl: LoadingController,
+            public alertCtrl: AlertController
+          ) {
+            this.createAccountForm = formBuilder.group({
+              email:[''],
+              password:[''],
+              country:[''],
+              dateOfBirth:['']
+            });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateAccountPage');
   }
-  async createAccount(user:User){
-    try{
-    const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
-    console.log(result);
-    }
-    catch(e){
-      console.error(e);
-    }
+
+  signUpUser(){
+    this.authProvider.CreateNewUser(this.createAccountForm.value.email, this.createAccountForm.value.password, this.createAccountForm.value.country, this.createAccountForm.value.age)
+  .then(()=>{
+    this.navCtrl.setRoot(TestHomePage);
+  });
   }
 
 

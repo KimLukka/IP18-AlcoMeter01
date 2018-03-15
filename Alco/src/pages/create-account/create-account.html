@@ -1,0 +1,59 @@
+
+<ion-header style="background-color:lightblue;">
+  <img src="assets/imgs/alcometer.png">
+</ion-header>
+
+<ion-content padding class="auth-page">
+    <h1 style="position:absolute; left:25%; top:5%">Create Account</h1>
+<form [formGroup]="createAccountForm" (submit)="signUpUser()">
+<ion-list style="position:absolute; top:10%; left:20%;">
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input  type="text" formControlName="email"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" formControlName="password"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating> Confirm password</ion-label>
+    <ion-input type="password" ></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Country</ion-label>
+    <ion-select formControlName="country">
+      <ion-option value="België">België</ion-option>
+      <ion-option value="Suomi">Suomi</ion-option>
+      <ion-option value="Deutschland">Deutschland</ion-option>
+      <ion-option value="Nederland">Nederland</ion-option>
+      <ion-option value="France">France</ion-option>
+      <ion-option value="Lëtzebuerg">Lëtzebuerg</ion-option>
+      <ion-option value="Portugal">Portugal</ion-option>
+      <ion-option value="Sverige">Sverige</ion-option>
+      <ion-option value="Great Britian">Great Britian</ion-option>
+      <ion-option value="România">România</ion-option>
+      <ion-option value="Italia">Italia</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Date of birth</ion-label>
+    <ion-datetime formControlName="dateOfBirth" displayFormat="DD/MM/YYYY"></ion-datetime>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label style="font-size:0.7em;">I agree to share my information.</ion-label>
+    <ion-checkbox ></ion-checkbox>
+  </ion-item>
+
+
+  <button type="submit"  style="position:absolute; top:105%; background-color:lightblue; width:100%" ion-button>Create Account</button>
+  </ion-list>
+</form>
+</ion-content>

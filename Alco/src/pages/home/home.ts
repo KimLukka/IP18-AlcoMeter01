@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { User } from '../../models/user';
+import {AngularFireAuthModule, AngularFireAuth} from 'angularfire2/auth';
 
 
 @Component({

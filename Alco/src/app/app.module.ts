@@ -9,13 +9,21 @@ import { DatabaseTestingPage } from '../pages/database-testing/database-testing'
 import { SignUpPage } from '../pages/sign-up/sign-up';
 
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpModule } from '@angular/http';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FirebaseProvider } from './../providers/firebase/firebase';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import {HttpModule} from '@angular/http';
-import {AngularFireDatabaseModule} from 'angularfire2/database';
-import {AngularFireModule} from 'angularfire2';
-import {FirebaseProvider} from './../providers/firebase/firebase';
-import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { AngularFireModule } from 'angularfire2';
+import {AngularFireAuthModule} from "angularfire2/auth";
+import { LoginPage } from '../pages/login/login';
+import { LoginPageModule } from '../pages/login/login.module';
+import { CreateAccountPage } from '../pages/create-account/create-account';
+import { AuthenticatieProvider } from '../providers/authenticatie/authenticatie';
+import { TestHomePage } from '../pages/test-home/test-home';
+import { TestHomePageModule } from '../pages/test-home/test-home.module';
+import * as firebase from 'firebase';
+import { ResetPasswordPageModule } from '../pages/reset-password/reset-password.module';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGbCzagTiX3RZmGXYct2YaJSZQPMcziac",
@@ -26,38 +34,48 @@ const firebaseConfig = {
   messagingSenderId: "211742343446"
 };
 
-
-
+firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    DatabaseTestingPage,
-    SignUpPage
+    CreateAccountPage
+      ],
 
-  ],
   imports: [
     BrowserModule,
     HttpModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    LoginPageModule,
+    HttpModule,
+    AngularFireDatabaseModule,
+    TestHomePageModule,
+    ResetPasswordPageModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    MyApp,  
     HomePage,
     ListPage,
-    DatabaseTestingPage,
-    SignUpPage
+    LoginPage,
+    TestHomePage,
+    CreateAccountPage,
+    ResetPasswordPage
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    FirebaseProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthenticationProvider
+    AuthenticatieProvider,
+    FirebaseProvider
+
   ]
 })
 export class AppModule {}

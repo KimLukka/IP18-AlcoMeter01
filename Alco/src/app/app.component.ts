@@ -3,10 +3,14 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from 'firebase';
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { DatabaseTestingPage } from '../pages/database-testing/database-testing';
-import { SignUpPage } from '../pages/sign-up/sign-up';
+import { LoginPage } from '../pages/login/login';
+import { CreateAccountPage } from '../pages/create-account/create-account';
+import { TestHomePage } from '../pages/test-home/test-home';
+import { ResetPasswordPage } from "../pages/reset-password/reset-password";
+
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGbCzagTiX3RZmGXYct2YaJSZQPMcziac",
@@ -28,22 +32,21 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    firebase.initializeApp(firebaseConfig);
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
+      { title: 'Login', component: LoginPage },
       { title: 'List', component: ListPage },
-      { title: 'Login', component: DatabaseTestingPage},
-      { title: 'Signup', component: SignUpPage }
-    ];
+      { title: 'Create Account', component: CreateAccountPage }
 
+
+    ];
     const unsubscribe = firebase.auth().onAuthStateChanged( user => {
       if (!user) {
-        this.rootPage = DatabaseTestingPage;
+        this.rootPage = 'LoginPage';
         unsubscribe();
       } else { 
-        this.rootPage = HomePage;
+        this.rootPage = TestHomePage;
         unsubscribe();
       }
     });

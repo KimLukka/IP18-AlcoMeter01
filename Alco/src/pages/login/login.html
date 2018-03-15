@@ -1,0 +1,23 @@
+<ion-header style="background-color:lightblue;">
+  <img src="assets/imgs/alcometer.png" style="padding-top:20%;">
+</ion-header>
+
+<h1 style="position:absolute;left:40%; top:35%;">Login</h1>
+
+<ion-list style="position:absolute; top:45%; left:20%;">
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+  <ion-label><a (click)="resetPassword()" style="font-size:10px;margin-left:7%">Forgot password?</a></ion-label>
+  <button style="position:absolute; top:100%; background-color:lightblue; width:100%" (click)="login(user)" ion-button>Sign in</button>
+</ion-list>
+
+  <img src="assets/imgs/google.png" style="margin-top:145%;margin-left:20%; width:220px;height:50px;">
+  <button style="background-color:lightblue; margin-left:20.5%; width:216px;" (click)="createAccount()" ion-button>Create account</button>
+

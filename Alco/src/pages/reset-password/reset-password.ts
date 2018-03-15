@@ -1,25 +1,41 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController, AlertController } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthenticatieProvider } from '../../providers/authenticatie/authenticatie';
+import { TestHomePage } from '../test-home/test-home';
 
-/**
- * Generated class for the ResetPasswordPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
-@IonicPage()
+@IonicPage({name: 'page-reset-password'})
 @Component({
   selector: 'page-reset-password',
   templateUrl: 'reset-password.html',
 })
 export class ResetPasswordPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public resetPasswordForm: FormGroup;
+  public loading: Loading;
+  constructor(private afAuth:AngularFireAuth,
+            public navCtrl: NavController, 
+            public navParams: NavParams, 
+            public authProvider: AuthenticatieProvider, 
+            public formBuilder: FormBuilder,
+            public loadingCtrl: LoadingController,
+            public alertCtrl: AlertController
+          ) {
+   
+            this.resetPasswordForm = formBuilder.group({
+              email:['']
+            });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ResetPasswordPage');
+    console.log('ionViewDidLoad CreateAccountPage');
   }
+
+  resetPassword(){
+    this.authProvider.resetPassword(this.resetPasswordForm.value.email);
+  
+  }
+  
 
 }

@@ -20,6 +20,8 @@ import { AuthenticatieProvider } from '../providers/authenticatie/authenticatie'
 import { TestHomePage } from '../pages/test-home/test-home';
 import { TestHomePageModule } from '../pages/test-home/test-home.module';
 import * as firebase from 'firebase';
+import { ResetPasswordPageModule } from '../pages/reset-password/reset-password.module';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGbCzagTiX3RZmGXYct2YaJSZQPMcziac",
@@ -47,7 +49,8 @@ firebase.initializeApp(firebaseConfig);
     LoginPageModule,
     HttpModule,
     AngularFireDatabaseModule,
-    TestHomePageModule
+    TestHomePageModule,
+    ResetPasswordPageModule
 
   ],
   bootstrap: [IonicApp],
@@ -57,7 +60,8 @@ firebase.initializeApp(firebaseConfig);
     ListPage,
     LoginPage,
     TestHomePage,
-    CreateAccountPage
+    CreateAccountPage,
+    ResetPasswordPage
   ],
   providers: [
     StatusBar,

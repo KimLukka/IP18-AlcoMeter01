@@ -7,6 +7,7 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { CreateAccountPage } from '../pages/create-account/create-account';
 import { TestHomePage } from '../pages/test-home/test-home';
+import { ResetPasswordPage } from "../pages/reset-password/reset-password";
 
 
 

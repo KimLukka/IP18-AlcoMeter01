@@ -41,7 +41,7 @@ export class CreateAccountPage {
   }
 
   signUpUser(){
-    this.authProvider.CreateNewUser(this.createAccountForm.value.email, this.createAccountForm.value.password, this.createAccountForm.value.country, this.createAccountForm.value.age)
+    this.authProvider.CreateNewUser(this.createAccountForm.value.email, this.createAccountForm.value.password, this.createAccountForm.value.country, this.createAccountForm.value.dateOfBirth)
   .then(()=>{
     this.navCtrl.setRoot(TestHomePage);
   });

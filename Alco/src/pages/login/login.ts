@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../../models/user';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {CreateAccountPage } from './../create-account/create-account';
-
+import {ResetPasswordPage} from './../reset-password/reset-password';
 /**
  * Generated class for the LoginPage page.
  *
@@ -42,7 +42,7 @@ export class LoginPage {
   }
 
   resetPassword(){
-    this.navCtrl.push('ResetPasswordPage');
+    this.navCtrl.push(ResetPasswordPage);
   }
 
 }

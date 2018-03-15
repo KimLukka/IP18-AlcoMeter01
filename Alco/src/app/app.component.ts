@@ -3,11 +3,14 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from 'firebase';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { CreateAccountPage } from '../pages/create-account/create-account';
 import { TestHomePage } from '../pages/test-home/test-home';
 import { ResetPasswordPage } from "../pages/reset-password/reset-password";
+import { MainPage} from "../pages/main/main";
+import { SettingsPage } from "../pages/settings/settings";
+import { StatisticsPage } from "../pages/statistics/statistics";
+import { PersonalInfoPage } from "../pages/personal-info/personal-info";
 
 
 
@@ -36,8 +39,11 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Login', component: LoginPage },
-      { title: 'List', component: ListPage },
-      { title: 'Create Account', component: CreateAccountPage }
+      { title: 'Create Account', component: CreateAccountPage },
+      { title: 'PersonalInfo', component: PersonalInfoPage },
+      { title: 'Main', component: MainPage },
+      { title: 'Settings', component: SettingsPage },
+      { title: 'Statistics', component: StatisticsPage }
 
 
     ];

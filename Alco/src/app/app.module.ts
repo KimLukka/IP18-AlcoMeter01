@@ -3,7 +3,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -20,6 +19,10 @@ import { TestHomePageModule } from '../pages/test-home/test-home.module';
 import * as firebase from 'firebase';
 import { ResetPasswordPageModule } from '../pages/reset-password/reset-password.module';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { MainPage} from "../pages/main/main";
+import { SettingsPage } from "../pages/settings/settings";
+import { StatisticsPage } from "../pages/statistics/statistics";
+import { PersonalInfoPage } from "../pages/personal-info/personal-info";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGbCzagTiX3RZmGXYct2YaJSZQPMcziac",
@@ -34,8 +37,11 @@ firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [
     MyApp,
-    ListPage,
-    CreateAccountPage
+    CreateAccountPage,
+    MainPage,
+    SettingsPage,
+    StatisticsPage,
+    PersonalInfoPage
       ],
 
   imports: [
@@ -55,12 +61,15 @@ firebase.initializeApp(firebaseConfig);
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,  
-    ListPage,
+    MyApp,
     LoginPage,
     TestHomePage,
     CreateAccountPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    MainPage,
+    SettingsPage,
+    StatisticsPage,
+    PersonalInfoPage
 
   ],
   providers: [

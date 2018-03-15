@@ -5,6 +5,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { DatabaseTestingPage } from '../pages/database-testing/database-testing';
+import { SignUpPage } from '../pages/sign-up/sign-up';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
@@ -33,7 +35,6 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 @NgModule({
   declarations: [
     MyApp,
@@ -41,8 +42,12 @@ firebase.initializeApp(firebaseConfig);
     ListPage,
     CreateAccountPage
       ],
+
   imports: [
     BrowserModule,
+    HttpModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
@@ -62,6 +67,7 @@ firebase.initializeApp(firebaseConfig);
     TestHomePage,
     CreateAccountPage,
     ResetPasswordPage
+
   ],
   providers: [
     StatusBar,
@@ -69,6 +75,7 @@ firebase.initializeApp(firebaseConfig);
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthenticatieProvider,
     FirebaseProvider
+
   ]
 })
 export class AppModule {}

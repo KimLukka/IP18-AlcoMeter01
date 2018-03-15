@@ -11,6 +11,16 @@ import { ResetPasswordPage } from "../pages/reset-password/reset-password";
 
 
 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCGbCzagTiX3RZmGXYct2YaJSZQPMcziac",
+  authDomain: "alcometer-720c2.firebaseapp.com",
+  databaseURL: "https://alcometer-720c2.firebaseio.com",
+  projectId: "alcometer-720c2",
+  storageBucket: "alcometer-720c2.appspot.com",
+  messagingSenderId: "211742343446"
+};
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -29,6 +39,7 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'Create Account', component: CreateAccountPage }
 
+
     ];
     const unsubscribe = firebase.auth().onAuthStateChanged( user => {
       if (!user) {
@@ -39,7 +50,6 @@ export class MyApp {
         unsubscribe();
       }
     });
-  
 
   }
 

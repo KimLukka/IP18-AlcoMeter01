@@ -15,6 +15,8 @@ export class FirebaseProvider {
  
   removeUser(email) {
     this.afd.list('/userProfile/').remove(email);
+
+
   }
 
 }

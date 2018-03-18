@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthenticatieProvider} from '../../providers/authenticatie/authenticatie'
 
 /**
  * Generated class for the TestHomePage page.
@@ -16,16 +16,18 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class TestHomePage {
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth: AuthenticatieProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   logout(){
-    this.afAuth.auth.signOut();
+    this.afAuth.logOut();
     this.navCtrl.push('LoginPage');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestHomePage');
+    this.afAuth.getCurrentuserID();
   }
+
 
 }

@@ -27,4 +27,17 @@ export class AuthenticatieProvider {
   resetPassword(email: string): Promise<any>{
     return firebase.auth().sendPasswordResetEmail(email);
   }
-}
+
+  getCurrentuserID(){
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        console.log(user.uid);
+        return user.uid;
+      } else {
+        console.log("no user logged in");
+        return null;
+      }
+    });
+    }
+  }
+

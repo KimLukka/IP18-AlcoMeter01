@@ -1,0 +1,50 @@
+#include <SoftwareSerial.h>
+
+int counter = 0;
+char data = 0;
+SoftwareSerial bluetooth(10, 11); //define bluetooth serial and RX/TX pins
+
+void setup() {
+  Serial.begin(9600);   //set baud rate to arduino
+  bluetooth.begin(9600); //set baud rate to bluetoothmodule
+}
+
+void loop() {
+counter = 0;  //reset the counter if the data transmission was succesful
+bluetooth.println(counter); //send counter value to phone
+for (int i=0; i <= 150; i++){  // making a loop, arduino try to send and receive 150 times, if the connection is not succesful.
+  if (bluetooth.available()) {  //arduino cheks if there is message available
+      data = bluetooth.read();
+      Serial.print("Vastaanotettu data:   ");        
+      Serial.print(data);        
+      Serial.print("\n"); 
+  if (data == '2') // if received data is correct it goes to this loop.
+      {
+        Serial.print("Datan vastaanotto ok, poistutaan loopista.");
+        Serial.print("\n");
+        Serial.println(counter);
+        break;     
+      }
+      else      // if it is not it goes here.
+      {
+        counter ++;
+        bluetooth.println(counter);
+        Serial.print("Dataa vastaanotettiin, mutta se ei ollut oikein");
+        Serial.print("\n");
+        Serial.println(counter);
+        delay(2000);
+      }
+      }
+      else //if arduino doesnt receive anything it goes here.
+      { 
+        counter ++;
+        Serial.print("Dataa ei vastaanotettu, lähetetään uudelleen");
+        Serial.print("\n");
+        bluetooth.println(counter);
+        Serial.println(counter);
+        delay(2000);
+        }
+   }
+   Serial.print("Loopista poistuttiin, countteri nollataan \n");  //ending the loop, just some printing for debugging.
+   delay(10000);
+}
